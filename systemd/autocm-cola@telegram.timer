@@ -1,0 +1,13 @@
+[Unit]
+Description=AutoCM — una nota diaria en Telegram (bot de BotFather)
+
+[Timer]
+# Canal PROPIO (bot propio): sin riesgo de baneo, cadencia diaria. Hora propia
+# para no caer en el mismo minuto que los otros canales.
+OnCalendar=*-*-* 09:40:00 America/Bogota
+RandomizedDelaySec=1800
+Persistent=true
+Unit=autocm-cola@telegram.service
+
+[Install]
+WantedBy=timers.target

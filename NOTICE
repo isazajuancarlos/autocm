@@ -1,0 +1,23 @@
+Xiliux AutoCM
+Copyright (c) Juan Carlos Isaza
+
+------------------------------------------------------------------------
+Componentes de terceros
+------------------------------------------------------------------------
+
+publicar_ui.py — las SECUENCIAS Y SELECTORES del DOM para publicar en
+Instagram y Threads conduciendo la UI web están DERIVADOS de:
+
+    MultiPost-Extension
+    https://github.com/leaperone/MultiPost-Extension
+    Copyright (c) leaperone
+    Licencia: Apache License 2.0
+
+    Archivos de origen:
+      src/sync/dynamic/instagram.ts
+      src/sync/dynamic/threads.ts
+
+Se portaron a Playwright (Python) los selectores y el orden de pasos; el
+código de este repositorio es una reimplementación, no una copia literal.
+La atribución se conserva conforme a la sección 4 de la Apache License 2.0.
+El texto de la licencia Apache 2.0 está en https://www.apache.org/licenses/LICENSE-2.0

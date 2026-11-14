@@ -1,0 +1,16 @@
+[Unit]
+Description=AutoCM — cadencia UI de Threads (Lun/Mié/Vie)
+
+[Timer]
+# 3/semana. Horas e idioma de la cuenta nuevos y sin seguidores: cadencia baja a
+# propósito. Distinta de Instagram (días y hora) para que las dos cuentas no
+# publiquen en lockstep y se delaten como un solo automatismo.
+OnCalendar=Mon,Wed,Fri *-*-* 11:10:00 America/Bogota
+RandomizedDelaySec=1800
+# Sin linger el timer solo corre con la sesión abierta; esto recupera la corrida
+# perdida en vez de saltarla en silencio.
+Persistent=true
+Unit=autocm-ui@threads.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,16 @@
+[Unit]
+# Publica UNA nota de la cola en el canal que va tras la arroba:
+#   systemctl --user start autocm-cola@bluesky.service
+Description=AutoCM — publica una nota de la cola en %i
+Documentation=file:///mnt/data/autocm/CLAUDE.md
+
+[Service]
+Type=oneshot
+WorkingDirectory=/mnt/data/autocm
+# --limite 1: una por corrida. La cuenta es nueva y sin seguidores; vaciar 16
+# notas de golpe es spam y quema el canal que esto existe para encender.
+ExecStart=/mnt/data/autocm/.venv/bin/python publicar_cola.py --destino %i --limite 1
+# Si el canal está apagado o falta una credencial, publicar_cola.py sale con
+# código != 0 y el fallo queda en el journal en vez de pasar por corrida buena.
+StandardOutput=journal
+StandardError=journal

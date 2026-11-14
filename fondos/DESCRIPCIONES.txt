@@ -1,0 +1,72 @@
+FONDOS DE MARCA PARA LAS TARJETAS DE POST — qué diseñar en Canva
+================================================================
+
+Cómo funciona: tú diseñas estos FONDOS (el arte de marca, con un HUECO vacío
+donde irá el texto). El programa (tarjeta.py) superpone encima el título del post.
+Por eso cada fondo debe DEJAR LIBRE la misma zona de texto, para que un solo
+ajuste (TARJETA_CAJA) valga para todos y se puedan rotar sin que el texto choque.
+
+ESPECIFICACIONES QUE COMPARTEN TODOS
+------------------------------------
+- Tamaño (lienzo):      1200 x 630 px  (la tarjeta social estándar, apaisada).
+- Formato de salida:    PNG.
+- Colores de marca:     fondo azul noche (#121A30 aprox.) y acento cobre
+                        (#B26634 aprox.), como el avatar del gato de Xiliux.
+- ZONA DE TEXTO LIBRE:  un rectángulo CENTRADO de 1020 x 300 px, empezando en
+                        x=90, y=140. (En Canva: deja ese centro despejado y
+                        LEGIBLE —sin elementos, sin degradados fuertes ni fotos
+                        con detalle— para que el texto claro se lea encima.)
+                        → esto se traduce a  TARJETA_CAJA=90,140,1020,300
+- Adornos permitidos:   arriba a la izquierda/derecha el logo del gato pequeño;
+                        abajo una barra cobre con "xiliux.com". Nunca dentro de
+                        la zona de texto.
+- Legibilidad:          el texto va en claro (#F0F0F0) con una sombra suave. La
+                        zona de texto debe ser OSCURA y de bajo contraste interno.
+- Nada de texto de relleno dentro de la zona: el título lo pone el programa.
+
+LOS FONDOS QUE PIDO (nómbralos EXACTAMENTE así al exportar)
+----------------------------------------------------------
+
+1) fondo-generico.png      [MÍNIMO VIABLE — con este ya arrancamos]
+   Para: cualquier post, es el comodín.
+   Arte: marca Xiliux limpia. Fondo azul noche con una textura/acento cobre sutil
+   (líneas, un degradado tenue en las esquinas). Gato de Xiliux pequeño en una
+   esquina superior. Barra cobre inferior con "xiliux.com". Centro despejado.
+
+2) fondo-quipu.png
+   Para: posts de CRIPTOGRAFÍA / Rust / seguridad (Quipu, chuspa, infosec).
+   Arte: más técnico/oscuro. Motivo discreto de cifrado o de Rust (un candado
+   fino, una retícula, el engranaje de Rust) en las esquinas o de marca de agua
+   MUY tenue, nunca sobre el centro. Acento cobre. Wordmark inferior.
+
+3) fondo-productos.png
+   Para: posts de los PRODUCTOS/DEMOS (medico, informes, inventario, chasqui).
+   Arte: un poco más luminoso o con un acento distinto (mismo azul, más aire),
+   que dé sensación de "software que funciona". Puede llevar una silueta de panel
+   o gráfico MUY tenue en un lateral. Centro despejado.
+
+4) fondo-ingles.png        [OPCIONAL]
+   Para: las versiones en INGLÉS de los 5 artículos de criptografía.
+   Arte: igual que fondo-quipu pero para que TÚ distingas de un vistazo cuál es;
+   puede ser idéntico en estilo. Si no quieres distinguir idioma por fondo,
+   omítelo y usa fondo-quipu para ambos.
+
+CUÁNTOS HACEN FALTA
+-------------------
+- Con SOLO el #1 ya publicamos (todas las notas usarían el genérico).
+- Con #1 + #2 + #3 hay variedad por tema y no parece un bot repitiendo la misma
+  imagen. Es lo recomendado.
+- El #4 es un lujo; se puede dejar para después.
+
+QUÉ HAGO YO CUANDO ME LOS PASES
+-------------------------------
+- Los pongo en fondos/ (o los mides tú y confirmas que la zona de texto quedó en
+  90,140,1020,300; si la moviste, me dices las coordenadas nuevas).
+- Si quieres ROTAR entre varios fondos (por tema o al azar), añado esa selección
+  en el código —hoy usa uno solo (TARJETA_FONDO)—; con la zona de texto común es
+  trivial.
+- Hago una tarjeta de prueba con un artículo real y te la enseño antes de nada.
+- Configuro el .env del VPS y desplegamos.
+
+Nota: si algún día pasas a Canva Enterprise, el mismo texto puede rellenar una
+Brand Template por API (canva.py, ya escrito); no hará falta rehacer esto.

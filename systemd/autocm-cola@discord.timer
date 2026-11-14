@@ -1,0 +1,13 @@
+[Unit]
+Description=AutoCM — una nota diaria en Discord (canal propio)
+
+[Timer]
+# Canal PROPIO de Xiliux: sin riesgo de baneo, tolera cadencia diaria. Hora propia
+# para no caer en el mismo minuto que los otros canales.
+OnCalendar=*-*-* 15:05:00 America/Bogota
+RandomizedDelaySec=1800
+Persistent=true
+Unit=autocm-cola@discord.service
+
+[Install]
+WantedBy=timers.target

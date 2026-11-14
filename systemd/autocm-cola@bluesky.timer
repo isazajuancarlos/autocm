@@ -1,0 +1,15 @@
+[Unit]
+Description=AutoCM — una nota diaria en Bluesky
+
+[Timer]
+OnCalendar=*-*-* 10:20:00 America/Bogota
+# Hora exacta todos los días = huella de robot. Media hora de dispersión basta
+# para que no caiga siempre en el mismo minuto.
+RandomizedDelaySec=1800
+# Sin linger, el temporizador solo corre con la sesión de Juan abierta; esto
+# recupera la corrida del día que se perdió, en vez de saltársela en silencio.
+Persistent=true
+Unit=autocm-cola@bluesky.service
+
+[Install]
+WantedBy=timers.target

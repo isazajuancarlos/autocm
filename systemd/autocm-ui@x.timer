@@ -1,0 +1,16 @@
+[Unit]
+Description=AutoCM — cadencia UI de X (Jue/Dom)
+
+[Timer]
+# 2/semana, en días y hora PROPIOS: threads va Lun/Mié/Vie, instagram Mar/Sáb, y
+# X Jue/Dom, así ninguna de las tres cuentas publica el mismo día y no se delatan
+# como un solo automatismo. Cuenta de marca nueva y sin seguidores: cadencia baja
+# a propósito. X es SENSIBLE (conducir la UI es lo que su ToS castiga), así que el
+# timer solo saca lo APROBADO; con la cola en borrador corre y sale limpio.
+OnCalendar=Thu,Sun *-*-* 09:25:00 America/Bogota
+RandomizedDelaySec=1800
+Persistent=true
+Unit=autocm-ui@x.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,36 @@
+.env
+*.log
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+verification_results.json
+
+# Respaldos del .env: llevan las credenciales dentro. Sin esto, un `git add -A`
+# vuelve a publicar lo que la purga de 2026-07-16 quito del historial.
+.env.bak-*
+.env.*.bak
+.env.local
+
+# Derivados del blog: se regeneran con `publicar_devto.py --preparar`
+borradores_devto/
+
+# La cola es estado local: se regenera con llenar_cola.py
+cola.sqlite
+cola.sqlite-wal
+cola.sqlite-shm
+
+# Artefactos generados: avatar/banner (imagenes_marca.py desde
+# /mnt/data/documentos/gato_xiliux.png) y las capturas de las demos
+# (capturas.py). Se regeneran; no se versionan.
+marca/
+
+# tarjetas generadas por post (runtime; los FONDOS de marca van en fondos/ y sí se versionan)
+/tarjetas/
+
+# Perfiles persistentes de Playwright para publicar_ui.py (Instagram/Threads).
+# Por defecto viven en ~/.autocm/perfiles-ui (fuera del repo); esto solo cubre
+# el caso de que PERFILES_UI_DIR se apunte dentro. Llevan COOKIES DE SESIÓN:
+# jamás se versionan — es acceso total a la cuenta, saltándose el 2FA.
+perfiles-ui/
+

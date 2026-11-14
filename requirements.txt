@@ -1,0 +1,34 @@
+# Xiliux AutoCM - Dependencies
+
+# Core
+python-dotenv>=1.0.0
+requests>=2.31.0
+schedule>=1.2.0
+
+# AI Content Generation
+openai>=1.0.0
+
+# Browser Automation
+playwright>=1.40.0
+
+# Social Media Clients
+Mastodon.py>=1.8.0
+tweepy>=4.14.0
+atproto>=0.0.50
+praw>=7.7.0
+
+# Email Marketing API
+flask>=3.0.0
+flask-cors>=4.0.0
+jinja2>=3.1.0
+
+# Conversión y parseo (publicar_devto.py) — faltaban, y por eso el servicio
+# autocm-devto lleva 6 de 6 corridas fallando en el VPS con ModuleNotFoundError
+markdownify>=0.11.0
+defusedxml>=0.7.1
+
+# Encuadre de la imagen social antes de publicar (publicar_cola._encuadrar_social):
+# un pantallazo de página completa se recorta a tarjeta 1200x630 o Facebook lo
+# publica como una tira vertical ilegible
+Pillow>=10.0.0
+pynostr>=0.6.0  # Nostr: firma schnorr de la nota + difusión a relays

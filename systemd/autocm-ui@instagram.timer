@@ -1,0 +1,13 @@
+[Unit]
+Description=AutoCM — cadencia UI de Instagram (Mar/Sáb)
+
+[Timer]
+# 2/semana, en días y hora distintos de Threads. Instagram exige imagen, así que
+# solo saldrá lo que tenga tarjeta encolada y aprobada.
+OnCalendar=Tue,Sat *-*-* 16:40:00 America/Bogota
+RandomizedDelaySec=1800
+Persistent=true
+Unit=autocm-ui@instagram.service
+
+[Install]
+WantedBy=timers.target

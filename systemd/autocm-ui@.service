@@ -1,0 +1,23 @@
+[Unit]
+# Publica UNA nota de la cola conduciendo la UI web (Playwright + xvfb) en el
+# canal que va tras la arroba:
+#   systemctl start autocm-ui@threads.service
+# Para redes sin API barata (instagram, threads). Pieza gemela de
+# autocm-cola@.service, que hace lo mismo por API.
+Description=AutoCM — publica por UI (Playwright) en %i
+Documentation=file:///mnt/data/autocm/CLAUDE.md
+
+[Service]
+Type=oneshot
+WorkingDirectory=/mnt/data/autocm
+# El perfil de sesión logueado vive en el HOME del usuario del servicio (%h).
+# Es el mismo que creó `--login`; lleva cookies, va 0o700 y fuera de git.
+Environment=PERFILES_UI_DIR=%h/.autocm/perfiles-ui
+# xvfb-run: display virtual, así corre --headful (menos huella que headless
+# puro) en un servidor sin pantalla. --limite 1: una por corrida, igual que los
+# canales de API — cuentas nuevas, cadencia baja para no parecer bot.
+# Si el canal está apagado (<RED>_ENABLED != true) o no hay nada APROBADO,
+# publicar_ui.py sale limpio sin publicar: instagram/threads son SENSIBLES.
+ExecStart=/usr/bin/xvfb-run -a /mnt/data/autocm/.venv/bin/python publicar_ui.py --destino %i --limite 1 --headful
+StandardOutput=journal
+StandardError=journal

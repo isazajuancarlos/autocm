@@ -1,0 +1,13 @@
+[Unit]
+Description=AutoCM — una nota diaria en Nostr (relays propios)
+
+[Timer]
+# Canal PROPIO (clave propia): sin riesgo de baneo, cadencia diaria como el
+# fediverse. Hora propia para no publicar en lockstep con los demás.
+OnCalendar=*-*-* 20:15:00 America/Bogota
+RandomizedDelaySec=1800
+Persistent=true
+Unit=autocm-cola@nostr.service
+
+[Install]
+WantedBy=timers.target

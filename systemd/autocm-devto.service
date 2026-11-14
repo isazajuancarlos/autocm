@@ -1,0 +1,14 @@
+[Unit]
+Description=AutoCM — suelta un borrador de dev.to
+Documentation=file:///mnt/data/autocm/CLAUDE.md
+
+[Service]
+Type=oneshot
+WorkingDirectory=/mnt/data/autocm
+# Los 17 artículos ya están SUBIDOS a dev.to como borradores; esto solo pasa el
+# más antiguo a publicado. Uno al día: 17 el mismo día en una cuenta nueva
+# parecen spam y además se entierran entre ellos, porque cada uno tiene su
+# ventana en el feed o no la tiene.
+ExecStart=/mnt/data/autocm/.venv/bin/python publicar_devto.py --soltar-siguiente
+StandardOutput=journal
+StandardError=journal

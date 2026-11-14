@@ -1,0 +1,13 @@
+[Unit]
+Description=AutoCM — una nota diaria en Mastodon
+
+[Timer]
+# Separado de Bluesky a propósito: las dos cuentas publican lo mismo, y hacerlo
+# en el mismo minuto las delata como un solo automatismo.
+OnCalendar=*-*-* 17:40:00 America/Bogota
+RandomizedDelaySec=1800
+Persistent=true
+Unit=autocm-cola@mastodon.service
+
+[Install]
+WantedBy=timers.target
